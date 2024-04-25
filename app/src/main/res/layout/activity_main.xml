@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gris_200"
+    android:orientation="vertical"
+    android:paddingTop="25dp"
+    android:weightSum="3"
+    tools:context=".ui.MainActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="2.9"
+        tools:listitem="@layout/item_rv_movie" />
+
+    <LinearLayout
+        android:id="@+id/llOptions"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="0.1"
+        android:background="@android:color/transparent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingVertical="4dp">
+
+        <Button
+            android:id="@+id/btnGetMovies"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/button_shape"
+            android:padding="10dp"
+            android:text="@string/btnGetMovies"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnGetPopularMovies"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/button_shape"
+            android:padding="10dp"
+            android:text="@string/btnGetPopularMovies"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

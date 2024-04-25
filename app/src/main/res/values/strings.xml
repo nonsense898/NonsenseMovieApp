@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NonsenseMovieApp</string>
+    <string name="btnGetMovies">Movies</string>
+    <string name="btnGetPopularMovies">Popular</string>
+</resources>
