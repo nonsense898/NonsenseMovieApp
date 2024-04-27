@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.MovieDetails">
+
+    <ImageView
+        android:id="@+id/ivMoviePoster"
+        tools:ignore="ContentDescription"
+        android:layout_width="match_parent"
+        android:layout_height="620dp"
+        app:srcCompat="@drawable/poster" />
+
+    <antonkozyriatskyi.circularprogressindicator.CircularProgressIndicator
+        android:id="@+id/circular_progress"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBottom="@+id/ivMoviePoster"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="338dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="0dp"
+        app:direction="clockwise"
+        app:dotWidth="6dp"
+        app:fillBackground="true"
+        app:formattingPattern="%.1f"
+        app:progressBackgroundColor="@color/blanco_200"
+        app:progressColor="@color/verde_200"
+        app:progressStrokeWidth="3dp"
+        app:textColor="@color/verde_200"
+        app:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvMovieTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivMoviePoster"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/tvMovieDescContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMovieTitle">
+
+        <TextView
+            android:id="@+id/tvMovieDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:padding="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+    </ScrollView>
+</RelativeLayout>
