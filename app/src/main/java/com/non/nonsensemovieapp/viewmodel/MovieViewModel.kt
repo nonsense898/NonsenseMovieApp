@@ -14,18 +14,13 @@ class MovieViewModel : ViewModel() {
     private var _movieList = MutableLiveData<List<Movie>>()
     val movieList: MutableLiveData<List<Movie>> = _movieList
 
-    fun getMovies() {
+    fun getMovie(isPopular: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
-            val response = MovieClient.webService.getMovie(Constants.API_KEY)
-            withContext(Dispatchers.Main) {
-                movieList.value = response.body()!!.results.sortedByDescending { it.voteAverage }
-            }
-        }
-    }
+            val service = MovieClient.webService
+            val apiKey = Constants.API_KEY
 
-    fun getPopularMovies() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val response = MovieClient.webService.getPopular(Constants.API_KEY)
+            val response = if (isPopular) service.getPopularMovie(apiKey) else service.getNowPlayingMovie(apiKey)
+
             withContext(Dispatchers.Main) {
                 movieList.value = response.body()!!.results.sortedByDescending { it.voteAverage }
             }

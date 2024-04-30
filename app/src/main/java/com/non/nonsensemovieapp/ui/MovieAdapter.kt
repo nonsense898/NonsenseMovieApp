@@ -1,6 +1,7 @@
 package com.non.nonsensemovieapp.ui
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,9 +41,26 @@ class MovieAdapter(
 
         holder.pbIndicator.maxProgress = Constants.MAX_RATING
         holder.pbIndicator.setCurrentProgress(movie.voteAverage.toDouble())
+
+        holder.cvMovie.setOnClickListener {
+            val intent: Intent = Intent(context, MovieDetails::class.java)
+            intent.putExtra("movie_poster", movie.posterPath)
+            intent.putExtra("movie_title", movie.originalTitle)
+            intent.putExtra("movie_rating", movie.voteAverage)
+            intent.putExtra("movie_desc", movie.description)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
         return movieList.size
     }
+
+    fun getSelectedMovie(position: Int): Movie? {
+        if (movieList.isNotEmpty()) {
+            return movieList.get(position)
+        }
+        return null
+    }
 }
+
