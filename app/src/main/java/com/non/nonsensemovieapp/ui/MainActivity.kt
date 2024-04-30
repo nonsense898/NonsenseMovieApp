@@ -1,14 +1,19 @@
 package com.non.nonsensemovieapp.ui
 
+import android.content.Context
 import android.os.Bundle
+import android.view.View
+import android.view.View.OnClickListener
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.non.nonsensemovieapp.R
 import com.non.nonsensemovieapp.databinding.ActivityMainBinding
 import com.non.nonsensemovieapp.viewmodel.MovieViewModel
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), OnClickListener  {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MovieViewModel
     private lateinit var movieAdapter: MovieAdapter
@@ -19,33 +24,31 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[MovieViewModel::class.java]
+        init(this)
+    }
 
-        setupRecycleView()
+    private fun init(context: Context) {
+        viewModel = ViewModelProvider(this)[MovieViewModel::class.java]
+        movieAdapter = MovieAdapter(context, arrayListOf())
 
         viewModel.movieList.observe(this) {
             movieAdapter.movieList = it
             movieAdapter.notifyDataSetChanged()
-        }
 
-        binding.btnGetMovies.setOnClickListener {
-            viewModel.getMovies()
-        }
+            binding.apply {
+                rvMovie.layoutManager = GridLayoutManager(context,3)
+                rvMovie.adapter = movieAdapter}}
 
-
-        binding.btnGetPopularMovies.setOnClickListener {
-            viewModel.getPopularMovies()
-        }
-
-        viewModel.getMovies()
-
+        viewModel.getMovie(false)
+        binding.btnGetMovies.setOnClickListener(this)
+        binding.btnGetPopularMovies.setOnClickListener(this)
     }
 
-    private fun setupRecycleView() {
-        val layoutManager = GridLayoutManager(this, 3)
-        binding.rvMovie.layoutManager = layoutManager
-        movieAdapter = MovieAdapter(this, arrayListOf())
-        binding.rvMovie.adapter = movieAdapter
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.btnGetMovies -> viewModel.getMovie(false)
+            R.id.btnGetPopularMovies -> viewModel.getMovie(true)
+        }
     }
 }
 

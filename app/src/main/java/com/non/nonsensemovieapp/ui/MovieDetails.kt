@@ -25,10 +25,15 @@ class MovieDetails : AppCompatActivity() {
             .load("${Constants.BASE_URL_IMAGE}${intent.extras?.getString("movie_poster")}")
             .apply(RequestOptions().override(Constants.IMAGE_WIDTH, Constants.IMAGE_HEIGHT))
             .into(binding.ivMoviePoster)
+
+        Glide.with(context)
+            .load("${Constants.BASE_URL_IMAGE}${intent.extras?.getString("movie_poster")}")
+            .apply(RequestOptions().override(Constants.IMAGE_WIDTH, Constants.IMAGE_HEIGHT))
+            .into(binding.ivSmallMoviePoster)
+
         binding.apply {
             tvMovieDesc.text = intent.extras?.getString("movie_desc")
             tvMovieTitle.text = intent.extras?.getString("movie_title")
-                 intent.extras?.getString("movie_rating")?.toDouble()?.let { circularProgress.setCurrentProgress(it) }
         }
 
     }
