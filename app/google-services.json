@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "427359644587",
+    "project_id": "pushtest-d1b52",
+    "storage_bucket": "pushtest-d1b52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427359644587:android:722a6dfd24eadf965000ee",
+        "android_client_info": {
+          "package_name": "com.non.nonsensemovieapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAviNiALiOIGktE3y2DQter9q9w3lbd7Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

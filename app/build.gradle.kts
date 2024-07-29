@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -87,6 +88,13 @@ dependencies {
 
     // CircularProgressIndicator
     implementation (libs.circularprogressindicator)
+
+    //Firebase BoM
+    implementation(platform(libs.firebase.bom))
+
+    //Onesignal SDK
+    implementation(libs.onesignal)
+
 
     //Retrofit
     implementation(libs.retrofit)
