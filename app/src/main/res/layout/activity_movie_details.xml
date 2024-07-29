@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MovieDetails">
+
+    <ImageView
+        android:id="@+id/ivMoviePoster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.4"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/poster"
+        tools:ignore="ContentDescription"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSmallMoviePosterContainer"
+        android:layout_width="130dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="14dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideLine">
+
+        <ImageView
+            android:id="@+id/ivSmallMoviePoster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/poster"
+            tools:ignore="ContentDescription" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvMovieTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/cvSmallMoviePosterContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cvSmallMoviePosterContainer"
+        app:layout_constraintTop_toTopOf="@id/guideLine"
+        tools:text="Test title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="278dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:alpha="0.6"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideLine" />
+
+    <ScrollView
+        android:layout_height="0dp"
+        android:layout_marginStart="14dp"
+        android:id="@+id/tvMovieDescContainer"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvSmallMoviePosterContainer">
+
+        <TextView
+            android:id="@+id/tvMovieDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

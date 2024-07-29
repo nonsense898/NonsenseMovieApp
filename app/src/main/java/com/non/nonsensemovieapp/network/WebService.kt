@@ -7,12 +7,12 @@ import retrofit2.http.Query
 
 interface WebService {
     @GET("now_playing")
-    suspend fun getMovie(
+    suspend fun getNowPlayingMovie(
         @Query("api_key") apiKey: String
     ): Response<MovieResponse>
 
     @GET("popular")
-    suspend fun getPopular(
+    suspend fun getPopularMovie(
         @Query("api_key") apiKey: String
     ): Response<MovieResponse>
 

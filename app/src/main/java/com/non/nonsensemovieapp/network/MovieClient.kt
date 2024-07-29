@@ -14,5 +14,4 @@ object MovieClient {
             .build()
             .create(WebService::class.java)
     }
-
 }

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -73,6 +74,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.material3)
+    implementation(libs.material)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -83,6 +88,13 @@ dependencies {
 
     // CircularProgressIndicator
     implementation (libs.circularprogressindicator)
+
+    //Firebase BoM
+    implementation(platform(libs.firebase.bom))
+
+    //Onesignal SDK
+    implementation(libs.onesignal)
+
 
     //Retrofit
     implementation(libs.retrofit)
